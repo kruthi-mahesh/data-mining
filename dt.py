@@ -9,6 +9,11 @@ class Record:
 		self.cl = className
 		self.att = att_dict
 
+class TestRecord:
+	def __init__(self,Tid,att_dict):
+		self.id = Tid
+		self.att = att_dict
+
 class Node:
 	def __init__(self):
 		self.isLeaf = True
@@ -233,7 +238,7 @@ def TreeGrowth  (E,F,parent_label):
 		root.isLeaf = False
 		root.label = find_best_label(E)
 		attr,left_edge,right_edge,D1,D2 = find_best_split(E,F)
-		root.test_cond = attr.name
+		root.test_cond = attr
 		root.leftEdge = left_edge
 		root.rightEdge = right_edge
 		for at in F:
@@ -251,13 +256,36 @@ def display(root):
 	if root.isLeaf == True:
 		print('Defaulted = ',root.label)
 		return
-	print(root.test_cond)
+	print(root.test_cond.name)
 	print('Left Edge is ', root.leftEdge)
 	print('Right Edge is',root.rightEdge)
-	print('Left Child of ',root.test_cond,'is')
+	print('Left Child of ',root.test_cond.name,'is')
 	display(root.leftChild)
-	print('Right Child of ',root.test_cond,'is')
+	print('Right Child of ',root.test_cond.name,'is')
 	display(root.rightChild)
+
+def assign(root,rec):
+
+	if root.isLeaf:
+		rec.cl = root.label
+		return
+	test_cond = root.test_cond
+	if test_cond.type == 'continuous':
+		split = root.leftEdge[0][1]
+		if rec.att[test_cond.name] <= split :
+			assign(root.leftChild,rec)
+		else:
+			assign(root.rightChild,rec)
+	else:
+		if rec.att[test_cond.name] in root.leftEdge[0]:
+			assign(root.leftChild,rec)
+		else:
+			assign(root.rightChild,rec)
+
+def assignLabel(root,test_set):
+	for rec in test_set:
+		assign(root,rec)
+
 
 D = []
 d1  =  {'Home_Owner':'Yes' ,'Marital_Status': 'Single', 'Annual_Income':125}
@@ -292,3 +320,18 @@ root =None
 root = TreeGrowth(D,attr_list,parent_label)
 display(root)
 
+
+#testing set
+test_set = []
+d11 = {'Home_Owner':'No' ,'Marital_Status': 'Single', 'Annual_Income':55}
+d12 = {'Home_Owner':'Yes' ,'Marital_Status': 'Divorced', 'Annual_Income':220}
+
+test_set.append(TestRecord(11,d11))
+test_set.append(TestRecord(12,d12))
+print('testing set is as follows')
+for rec in test_set:
+	print('TID: ',rec.id,'\tAttributes list:',rec.att)
+assignLabel(root,test_set)
+print('class labels of all records')
+for rec in test_set:
+	print('id = ',rec.id,'\t','class = ',rec.cl)
