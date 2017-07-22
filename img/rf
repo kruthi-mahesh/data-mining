@@ -1,0 +1,36 @@
+digraph {
+	"Home_Owner (0)"
+	"Home_Owner (0)" -> "No (0)" [label=Yes color=red]
+	"Home_Owner (0)" -> "Annual_Income (0)" [label=No color=blue]
+	"Annual_Income (0)"
+	"Annual_Income (0)" -> "No (0)" [label="<=,80" color=red]
+	"Annual_Income (0)" -> "Yes (0)" [label=">,80" color=blue]
+	"Annual_Income (1)"
+	"Annual_Income (1)" -> "Yes (1)" [label="<=,97" color=red]
+	"Annual_Income (1)" -> "No (1)" [label=">,97" color=blue]
+	"Home_Owner (2)"
+	"Home_Owner (2)" -> "No (2)" [label=Yes color=red]
+	"Home_Owner (2)" -> "Annual_Income (2)" [label=No color=blue]
+	"Annual_Income (2)"
+	"Annual_Income (2)" -> "No (2)" [label="<=,80" color=red]
+	"Annual_Income (2)" -> "Yes (2)" [label=">,80" color=blue]
+	"Marital_Status (3)"
+	"Marital_Status (3)" -> "Home_Owner (3)" [label="Single,Divorced" color=red]
+	"Marital_Status (3)" -> "No (3)" [label=Married color=blue]
+	"Home_Owner (3)"
+	"Home_Owner (3)" -> "No (3)" [label=Yes color=red]
+	"Home_Owner (3)" -> "Annual_Income (3)" [label=No color=blue]
+	"Annual_Income (3)"
+	"Annual_Income (3)" -> "No (3)" [label="<=,77" color=red]
+	"Annual_Income (3)" -> "Yes (3)" [label=">,77" color=blue]
+	"No (4)"
+	"Marital_Status (5)"
+	"Marital_Status (5)" -> "Annual_Income (5)" [label="Single,Married" color=red]
+	"Marital_Status (5)" -> "Yes (5)" [label=Divorced color=blue]
+	"Annual_Income (5)"
+	"Annual_Income (5)" -> "Home_Owner (5)" [label="<=,92" color=red]
+	"Annual_Income (5)" -> "No (5)" [label=">,92" color=blue]
+	"Home_Owner (5)"
+	"Home_Owner (5)" -> "No (5)" [label=Yes color=red]
+	"Home_Owner (5)" -> "No (5)" [label=No color=blue]
+}
