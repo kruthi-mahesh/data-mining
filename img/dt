@@ -1,0 +1,11 @@
+graph {
+	Marital_Status
+	Marital_Status -- Home_Owner [label="Single,Divorced" color=blue]
+	Marital_Status -- No [label=Married color=green]
+	Home_Owner
+	Home_Owner -- No [label=Yes color=blue]
+	Home_Owner -- Annual_Income [label=No color=green]
+	Annual_Income
+	Annual_Income -- No [label="<=,77" color=blue]
+	Annual_Income -- Yes [label=">,77" color=green]
+}
