@@ -267,7 +267,7 @@ def display(root):
 '''
 
 
-p1 = gv.Graph(format='svg')
+p1 = gv.Digraph(format='svg')
 
 
 def plot_tree(root):
@@ -282,13 +282,13 @@ def plot_tree(root):
 	else:
 		child = root.leftChild.test_cond.name
 
-	p1.edge(root.test_cond.name,child,label = ','.join(map(str,root.leftEdge[0])),color = 'blue')
+	p1.edge(root.test_cond.name,child,label = ','.join(map(str,root.leftEdge[0])),color = 'red')
 	if root.rightChild.isLeaf:
 		child = root.rightChild.label
 	else:
 		child = root.rightChild.test_cond.name
 
-	p1.edge(root.test_cond.name,child,label = ','.join(map(str,root.rightEdge[0])),color = 'green')
+	p1.edge(root.test_cond.name,child,label = ','.join(map(str,root.rightEdge[0])),color = 'blue')
 	if root.leftChild.isLeaf == False:
 		plot_tree(root.leftChild)
 	if root.rightChild.isLeaf == False:
