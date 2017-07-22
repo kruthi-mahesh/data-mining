@@ -1,5 +1,6 @@
 import sys
 from collections import Counter
+import graphviz as gv
 
 c_label = ['No', 'Yes']
 
@@ -93,7 +94,7 @@ def find_splitvalue(D,attr):
 		return_split_value = split_pos[0]
 	#initializing some variables required to find gini
 	len_left = 0
-	len_right = 10
+	len_right = n
 	len_left_class1 = 0
 	len_left_class2 = 0
 	len_right_class1 = cl1
@@ -249,11 +250,11 @@ def TreeGrowth  (E,F,parent_label):
 		root.leftChild = TreeGrowth(D1,F,parent_label)
 		root.rightChild = TreeGrowth(D2,F,parent_label)
 		return root
-
+'''
 def display(root):
 	if root == None:
 		return
-	if root.isLeaf == True:
+	if root.isLeaf:
 		print('Defaulted = ',root.label)
 		return
 	print(root.test_cond.name)
@@ -263,6 +264,35 @@ def display(root):
 	display(root.leftChild)
 	print('Right Child of ',root.test_cond.name,'is')
 	display(root.rightChild)
+'''
+
+
+p1 = gv.Graph(format='svg')
+
+
+def plot_tree(root):
+	if root == None:
+		return
+	if root.isLeaf:
+		p1.node(root.label)
+		return
+	p1.node(root.test_cond.name)
+	if root.leftChild.isLeaf:
+		child = root.leftChild.label
+	else:
+		child = root.leftChild.test_cond.name
+
+	p1.edge(root.test_cond.name,child,label = ','.join(map(str,root.leftEdge[0])),color = 'blue')
+	if root.rightChild.isLeaf:
+		child = root.rightChild.label
+	else:
+		child = root.rightChild.test_cond.name
+
+	p1.edge(root.test_cond.name,child,label = ','.join(map(str,root.rightEdge[0])),color = 'green')
+	if root.leftChild.isLeaf == False:
+		plot_tree(root.leftChild)
+	if root.rightChild.isLeaf == False:
+		plot_tree(root.rightChild)
 
 def assign(root,rec):
 
@@ -318,20 +348,36 @@ attr_list.append(Attribute('Annual_Income','continuous',['<=','>']))
 parent_label = find_best_label(D)
 root =None
 root = TreeGrowth(D,attr_list,parent_label)
-display(root)
-
+#display(root)
+plot_tree(root)
+p1.render('img/dt')
+print 'Image of decision tree is saved in a folder called img'
 
 #testing set
-test_set = []
 d11 = {'Home_Owner':'No' ,'Marital_Status': 'Single', 'Annual_Income':55}
 d12 = {'Home_Owner':'Yes' ,'Marital_Status': 'Divorced', 'Annual_Income':220}
+d13 = {'Home_Owner':'No' ,'Marital_Status': 'Married', 'Annual_Income':60}
+d14 = {'Home_Owner':'No' ,'Marital_Status': 'Divorced', 'Annual_Income':260}
+d15 = {'Home_Owner':'No' ,'Marital_Status': 'Divorced', 'Annual_Income':60}
+test_set = []
+test_set.append(TestRecord(1,d1))
+test_set.append(TestRecord(2,d2))
+test_set.append(TestRecord(3,d3))
+test_set.append(TestRecord(4,d4))
+test_set.append(TestRecord(5,d5))
+test_set.append(TestRecord(6,d6))
+test_set.append(TestRecord(7,d7))
+test_set.append(TestRecord(8,d8))
+test_set.append(TestRecord(9,d9))
+test_set.append(TestRecord(10,d10))
 
 test_set.append(TestRecord(11,d11))
 test_set.append(TestRecord(12,d12))
-print('testing set is as follows')
-for rec in test_set:
-	print('TID: ',rec.id,'\tAttributes list:',rec.att)
+test_set.append(TestRecord(13,d13))
+test_set.append(TestRecord(14,d14))
+test_set.append(TestRecord(15,d15))
+
 assignLabel(root,test_set)
-print('class labels of all records')
+print 'Testing set is as follows'
 for rec in test_set:
-	print('id = ',rec.id,'\t','class = ',rec.cl)
+	print rec.id,' ',rec.att,'\tclass = ',rec.cl
