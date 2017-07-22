@@ -19,9 +19,10 @@
 <ellipse fill="none" stroke="black" cx="117.594" cy="-192" rx="61.1893" ry="18"/>
 <text text-anchor="middle" x="117.594" y="-188.3" font-family="Times,serif" font-size="14.00">Home_Owner</text>
 </g>
-<!-- Marital_Status&#45;&#45;Home_Owner -->
-<g id="edge1" class="edge"><title>Marital_Status&#45;&#45;Home_Owner</title>
-<path fill="none" stroke="blue" d="M138.326,-263.31C130.509,-258.052 123.08,-251.317 118.594,-243 113.236,-233.066 113.061,-220.328 114.188,-210.195"/>
+<!-- Marital_Status&#45;&gt;Home_Owner -->
+<g id="edge1" class="edge"><title>Marital_Status&#45;&gt;Home_Owner</title>
+<path fill="none" stroke="red" d="M138.326,-263.31C130.509,-258.052 123.08,-251.317 118.594,-243 114.91,-236.17 113.677,-228.015 113.631,-220.293"/>
+<polygon fill="red" stroke="red" points="117.132,-220.372 114.188,-210.195 110.143,-219.987 117.132,-220.372"/>
 <text text-anchor="middle" x="163.094" y="-231.8" font-family="Times,serif" font-size="14.00">Single,Divorced</text>
 </g>
 <!-- No -->
@@ -29,14 +30,16 @@
 <ellipse fill="none" stroke="black" cx="171.594" cy="-18" rx="27" ry="18"/>
 <text text-anchor="middle" x="171.594" y="-14.3" font-family="Times,serif" font-size="14.00">No</text>
 </g>
-<!-- Marital_Status&#45;&#45;No -->
-<g id="edge2" class="edge"><title>Marital_Status&#45;&#45;No</title>
-<path fill="none" stroke="green" d="M193.115,-261.903C198.944,-256.623 204.424,-250.228 207.594,-243 210.271,-236.894 208.162,-234.642 207.594,-228 201.431,-155.914 183.519,-71.3532 175.525,-35.94"/>
+<!-- Marital_Status&#45;&gt;No -->
+<g id="edge2" class="edge"><title>Marital_Status&#45;&gt;No</title>
+<path fill="none" stroke="blue" d="M193.115,-261.903C198.944,-256.623 204.424,-250.228 207.594,-243 210.271,-236.894 208.162,-234.642 207.594,-228 201.949,-161.968 186.445,-85.4687 177.736,-45.8659"/>
+<polygon fill="blue" stroke="blue" points="181.116,-44.9398 175.525,-35.94 174.283,-46.4618 181.116,-44.9398"/>
 <text text-anchor="middle" x="220.094" y="-144.8" font-family="Times,serif" font-size="14.00">Married</text>
 </g>
-<!-- Home_Owner&#45;&#45;No -->
-<g id="edge3" class="edge"><title>Home_Owner&#45;&#45;No</title>
-<path fill="none" stroke="blue" d="M125.073,-173.888C130.86,-160.266 138.831,-140.627 144.594,-123 154.449,-92.8581 163.122,-56.8866 167.836,-36.1199"/>
+<!-- Home_Owner&#45;&gt;No -->
+<g id="edge3" class="edge"><title>Home_Owner&#45;&gt;No</title>
+<path fill="none" stroke="red" d="M125.073,-173.888C130.86,-160.266 138.831,-140.627 144.594,-123 153.024,-97.2145 160.59,-67.1628 165.552,-46.0135"/>
+<polygon fill="red" stroke="red" points="168.997,-46.6509 167.836,-36.1199 162.177,-45.0763 168.997,-46.6509"/>
 <text text-anchor="middle" x="166.594" y="-101.3" font-family="Times,serif" font-size="14.00">Yes</text>
 </g>
 <!-- Annual_Income -->
@@ -44,14 +47,16 @@
 <ellipse fill="none" stroke="black" cx="67.594" cy="-105" rx="67.6881" ry="18"/>
 <text text-anchor="middle" x="67.594" y="-101.3" font-family="Times,serif" font-size="14.00">Annual_Income</text>
 </g>
-<!-- Home_Owner&#45;&#45;Annual_Income -->
-<g id="edge4" class="edge"><title>Home_Owner&#45;&#45;Annual_Income</title>
-<path fill="none" stroke="green" d="M107.716,-174.207C99.0068,-159.402 86.3766,-137.93 77.623,-123.049"/>
+<!-- Home_Owner&#45;&gt;Annual_Income -->
+<g id="edge4" class="edge"><title>Home_Owner&#45;&gt;Annual_Income</title>
+<path fill="none" stroke="blue" d="M107.716,-174.207C100.64,-162.178 90.9751,-145.748 82.9044,-132.028"/>
+<polygon fill="blue" stroke="blue" points="85.71,-129.894 77.623,-123.049 79.6765,-133.443 85.71,-129.894"/>
 <text text-anchor="middle" x="104.094" y="-144.8" font-family="Times,serif" font-size="14.00">No</text>
 </g>
-<!-- Annual_Income&#45;&#45;No -->
-<g id="edge5" class="edge"><title>Annual_Income&#45;&#45;No</title>
-<path fill="none" stroke="blue" d="M85.3587,-87.3233C96.1782,-77.374 110.413,-64.6467 123.594,-54 133.222,-46.2233 144.37,-38.0469 153.498,-31.5541"/>
+<!-- Annual_Income&#45;&gt;No -->
+<g id="edge5" class="edge"><title>Annual_Income&#45;&gt;No</title>
+<path fill="none" stroke="red" d="M85.3587,-87.3233C96.1782,-77.374 110.413,-64.6467 123.594,-54 130.363,-48.532 137.885,-42.8664 144.927,-37.7274"/>
+<polygon fill="red" stroke="red" points="147.429,-40.2385 153.498,-31.5541 143.338,-34.5583 147.429,-40.2385"/>
 <text text-anchor="middle" x="140.594" y="-57.8" font-family="Times,serif" font-size="14.00">&lt;=,77</text>
 </g>
 <!-- Yes -->
@@ -59,9 +64,10 @@
 <ellipse fill="none" stroke="black" cx="67.594" cy="-18" rx="27" ry="18"/>
 <text text-anchor="middle" x="67.594" y="-14.3" font-family="Times,serif" font-size="14.00">Yes</text>
 </g>
-<!-- Annual_Income&#45;&#45;Yes -->
-<g id="edge6" class="edge"><title>Annual_Income&#45;&#45;Yes</title>
-<path fill="none" stroke="green" d="M67.594,-86.799C67.594,-72.0519 67.594,-50.9152 67.594,-36.1754"/>
+<!-- Annual_Income&#45;&gt;Yes -->
+<g id="edge6" class="edge"><title>Annual_Income&#45;&gt;Yes</title>
+<path fill="none" stroke="blue" d="M67.594,-86.799C67.594,-75.1626 67.594,-59.5479 67.594,-46.2368"/>
+<polygon fill="blue" stroke="blue" points="71.0941,-46.1754 67.594,-36.1754 64.0941,-46.1755 71.0941,-46.1754"/>
 <text text-anchor="middle" x="80.594" y="-57.8" font-family="Times,serif" font-size="14.00">&gt;,77</text>
 </g>
 </g>
